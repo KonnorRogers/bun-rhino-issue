@@ -4,8 +4,8 @@
 import "./controllers"
 
 // Rhino Editor
-// import "rhino-editor/cdn/exports/index.js"
-// import "rhino-editor/exports/styles/trix.css"
+import "rhino-editor/exports/index.js"
+import "rhino-editor/exports/styles/trix.css"
 
 // Prose Mirror
 // import {EditorState} from "prosemirror-state"

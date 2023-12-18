@@ -1,24 +1,36 @@
-# README
+# Purpose
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Error reproduction for issue reported here: <https://github.com/KonnorRogers/rhino-editor/issues/146>
 
-Things you may want to cover:
 
-* Ruby version
+## Installation
 
-* System dependencies
+```rb
+git clone https://github.com/KonnorRogers/bun-rhino-issue
+cd bun-rhino-issue
+bundle install # Requires ruby 3+
+bun install # Bun 1.0.18 is what this was last tested on.
+```
 
-* Configuration
+## Getting Started
 
-* Database creation
+Start the server like so:
 
-* Database initialization
+```bash
+overmind start -f Procfile.dev
+```
 
-* How to run the test suite
+Go to `localhost:5000/posts`
 
-* Services (job queues, cache servers, search engines, etc.)
+Check the browser console for errors.
 
-* Deployment instructions
+## Cycling through editors
 
-* ...
+There are 3 editors labelled in `app/javascript/application.js`
+
+- ProseMirror
+- RhinoEditor
+- TipTap
+
+I was unable to get any of them working without errors.
+
