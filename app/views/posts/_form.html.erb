@@ -1,0 +1,28 @@
+<%= form_with(model: post) do |form| %>
+  <% if post.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+        <% post.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.hidden_field :content, id: form.field_id(:content), value: form.object.content.try(:to_trix_html) || form.object.content %>
+    <rhino-editor
+      input="<%= form.field_id(:content) %>"
+      data-blob-url-template="<%= rails_service_blob_url(":signed_id", ":filename") %>"
+      data-direct-upload-url="<%= rails_direct_uploads_url %>"
+    ></rhino-editor>
+  </div>
+
+  <div id="editor"></div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
